@@ -1,12 +1,15 @@
 import React from 'react';
 import './photocard.css'
 
-class photoCard extends React.Component {
+class PhotoCard extends React.Component {
     render () {
         return (
-            <div>
-                <img src={this.props.src}></img>
+            <div className={this.props.className}>
+                <div>this is {this.props.ismodifyible ? 'very': 'not'} modifyable</div>
+                <img src={this.props.src} key={this.props.src}></img>
             </div>
         )
     }
 }
+
+export default PhotoCard

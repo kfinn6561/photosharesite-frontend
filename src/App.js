@@ -1,25 +1,58 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import './gallery.css';
+import PhotoCard from './photocard';
 
-function App() {
-  return (
+const apiUrl='https://localhost:49153/MediaFile/all?userIP=127.1.1.0'
+
+const testData=[
+  {
+    url: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+    ismodifyible: true
+  },
+  {
+    url: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+    ismodifyible: false
+  },
+  {
+    url: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+    ismodifyible: true
+  }
+]
+
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      IsDataFetchComplete: false,
+      photoData:testData
+    }
+  }
+
+  componentDidMount(){
+    fetch(apiUrl)
+    .then((response) => response.json())
+    .then(data => {
+      this.state.photoData=data;
+    console.log(data)})
+  }
+
+
+
+  render(){
+    return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='container'>
+        {this.state.photoData.map((photo) =>(
+          <PhotoCard src={photo.url} ismodifyible={photo.ismodifyible} key={photo.url} className='item' />
+        ))}
+        </div>
       </header>
     </div>
   );
+        }
 }
 
 export default App;
