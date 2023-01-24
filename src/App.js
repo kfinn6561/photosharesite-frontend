@@ -50,7 +50,7 @@ class App extends React.Component {
       <header className="App-header">
         <div className='container'>
         {this.state.photoData.map((photo) =>(
-          <PhotoCard src={photo.url} ismodifyible={photo.ismodifyible} key={photo.url} className='item' />
+          <PhotoCard src={photo.url} ismodifyible={photo.ismodifyible} key={photo.url} />
         ))}
         </div>
       </header>

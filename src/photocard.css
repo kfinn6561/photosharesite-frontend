@@ -1,0 +1,41 @@
+.photocard {
+    position: relative;
+    margin: 20px;
+}
+
+.checkbox {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.photocard .checkbox {
+    visibility: hidden;
+}
+
+.photocard:hover .checkbox{
+    visibility: visible;
+}
+
+.deletebutton {
+    top: 0;
+    right: 0;
+    position: absolute;
+    background-color: aliceblue;
+    color: black;
+    margin: 0;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.deletebutton:hover {
+    color: #9e1f1f;
+}
+
+.photocard .deletebutton {
+    visibility: hidden;
+}
+
+.photocard:hover .deletebutton{
+    visibility: visible;
+}
