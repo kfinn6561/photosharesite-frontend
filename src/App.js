@@ -28,9 +28,9 @@ class App extends React.Component {
     this.state = {
       IsDataFetchComplete: false,
       photoData:testData,
-      showDownload: true,
-      showDelete: true
+      selected: []
     }
+    this.updateHeader()
   }
 
   componentDidMount(){
@@ -41,7 +41,37 @@ class App extends React.Component {
     console.log(data)})
   }
 
+  getShowDownload = () => {
+    return (this.state.selected.length > 0)
+  }
 
+  getShowDelete = () => {
+    if (this.state.selected.length == 0){
+      return false
+    }
+    for (const photo of this.state.selected) {
+      if (!photo.ismodifyible) {
+          return false
+      }
+    }
+    return true
+  }
+
+  updateHeader = () => {
+    this.setState({
+      showDownload: this.getShowDownload(),
+      showDelete: this.getShowDelete()
+    }
+    )
+  }
+
+  addPhoto = (photo) => {
+    return( () => {
+      this.state.selected.push(photo)
+      this.updateHeader()
+    }
+    )
+  }
 
   render(){
     return (
@@ -50,7 +80,11 @@ class App extends React.Component {
       <header className="App-header">
         <div className='container'>
         {this.state.photoData.map((photo) =>(
-          <PhotoCard src={photo.url} ismodifyible={photo.ismodifyible} key={photo.url} />
+          <PhotoCard
+           src={photo.url} 
+           ismodifyible={photo.ismodifyible} 
+           onSelect = {this.addPhoto(photo)}
+           key={photo.url} />
         ))}
         </div>
       </header>

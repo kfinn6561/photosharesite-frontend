@@ -3,23 +3,8 @@
     margin: 20px;
 }
 
-.checkbox {
+.photoicon {
     top: 0;
-    left: 0;
-    position: absolute;
-}
-
-.photocard .checkbox {
-    visibility: hidden;
-}
-
-.photocard:hover .checkbox{
-    visibility: visible;
-}
-
-.deletebutton {
-    top: 0;
-    right: 0;
     position: absolute;
     background-color: aliceblue;
     color: black;
@@ -28,14 +13,26 @@
     cursor: pointer;
 }
 
-.deletebutton:hover {
-    color: #9e1f1f;
+.left {
+    left: 0;
 }
 
-.photocard .deletebutton {
+.right {
+    right: 0;
+}
+
+.photocard .photoicon {
     visibility: hidden;
 }
 
-.photocard:hover .deletebutton{
+.photocard:hover .photoicon{
+    visibility: visible;
+}
+
+.delete:hover {
+    color: #9e1f1f;
+}
+
+.checked {
     visibility: visible;
 }
