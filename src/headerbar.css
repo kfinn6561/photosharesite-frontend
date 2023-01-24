@@ -1,0 +1,27 @@
+.headerbar {
+    top: 0;
+    position: fixed;
+    background-color: #2994eb;
+    height: calc(35px + 2vmin);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-align: left;
+    font-size: calc(10px + 2vmin);
+  }
+
+.headerbar-wrapper {
+    height: calc(35px + 2vmin);
+}
+
+.headeritem {
+    display:inline-block;
+    padding: 10px;
+    color: aliceblue;
+    cursor: pointer;
+  }
+
+  .headeritem:hover {
+    color: #9e1f1f;
+  }

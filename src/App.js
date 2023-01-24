@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import './gallery.css';
 import PhotoCard from './photocard';
+import HeaderBar from './headerbar';
 
 const apiUrl='https://localhost:49153/MediaFile/all?userIP=127.1.1.0'
 
@@ -26,7 +27,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       IsDataFetchComplete: false,
-      photoData:testData
+      photoData:testData,
+      showDownload: true,
+      showDelete: true
     }
   }
 
@@ -43,6 +46,7 @@ class App extends React.Component {
   render(){
     return (
     <div className="App">
+      <HeaderBar showDownload={this.state.showDownload} showDelete={this.state.showDelete} />
       <header className="App-header">
         <div className='container'>
         {this.state.photoData.map((photo) =>(
