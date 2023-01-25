@@ -27,8 +27,15 @@ class PhotoCard extends React.Component {
 
 
     render () {
+        var boxStyle = 
+        "width: "+this.props.box.width+"px;"
+        +" height: "+this.props.box.height+"px;"
+        +" top: "+this.props.box.top+"px;"
+        +" left: "+this.props.box.left+"px";
         return (
-            <div className={clsx("photocard", this.state.selected && "selected-image")} onClick={this.handleClick}>
+            <div className={clsx("photocard", this.state.selected && "selected-image")} 
+            onClick={this.handleClick}
+            style={boxStyle}>
                 <span className={clsx('photoicon','left', !this.state.selected && 'appear')}>
                     { this.state.selected ? <ImCheckboxChecked className='checkbox' /> : <ImCheckboxUnchecked /> }
                 </span>
