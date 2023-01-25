@@ -16,6 +16,7 @@ class PhotoCard extends React.Component {
             this.setState({
                 selected: false
             })
+            this.props.onDeselect()
         } else {
             this.setState({
                 selected: true
@@ -27,13 +28,13 @@ class PhotoCard extends React.Component {
 
     render () {
         return (
-            <div className="photocard" onClick={this.handleClick}>
-                <span className={clsx('photoicon','left', this.state.selected && ' checked')}>
-                    { this.state.selected ? <ImCheckboxChecked /> : <ImCheckboxUnchecked /> }
+            <div className={clsx("photocard", this.state.selected && "selected-image")} onClick={this.handleClick}>
+                <span className={clsx('photoicon','left', !this.state.selected && 'appear')}>
+                    { this.state.selected ? <ImCheckboxChecked className='checkbox' /> : <ImCheckboxUnchecked /> }
                 </span>
                 {this.props.ismodifyible &&
-                 <span className='photoicon right delete'><ImBin/></span> }
-                <img src={this.props.src} key={this.props.src}></img>
+                 <span className='photoicon right appear delete'><ImBin/></span> }
+                <img className='photocard-image' src={this.props.src} key={this.props.src}></img>
             </div>
         )
     }

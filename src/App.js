@@ -73,6 +73,13 @@ class App extends React.Component {
     )
   }
 
+  removePhoto = (photo) => {
+    return( () => {
+      this.state.selected = this.state.selected.filter(item => item != photo)
+      this.updateHeader()
+  })
+  }
+
   render(){
     return (
     <div className="App">
@@ -84,6 +91,7 @@ class App extends React.Component {
            src={photo.url} 
            ismodifyible={photo.ismodifyible} 
            onSelect = {this.addPhoto(photo)}
+           onDeselect = {this.removePhoto(photo)}
            key={photo.url} />
         ))}
         </div>
