@@ -27,11 +27,14 @@ class PhotoCard extends React.Component {
 
 
     render () {
+        console.log(this.props)
         var boxStyle = 
-        "width: "+this.props.box.width+"px;"
-        +" height: "+this.props.box.height+"px;"
-        +" top: "+this.props.box.top+"px;"
-        +" left: "+this.props.box.left+"px";
+        {
+            width: this.props.box.width+"px",
+            height: this.props.box.height+"px",
+            top: this.props.box.top+"px",
+            left: this.props.box.left+"px"
+        }
         return (
             <div className={clsx("photocard", this.state.selected && "selected-image")} 
             onClick={this.handleClick}

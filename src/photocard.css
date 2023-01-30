@@ -1,5 +1,5 @@
 .photocard {
-    position: relative;
+    position: absolute;
     margin: 20px;
     display: block;
     border-width: thick;
@@ -46,6 +46,7 @@
 
 .photocard-image {
     display: block;
+    height: 100%;
 }
 
 .checkbox {

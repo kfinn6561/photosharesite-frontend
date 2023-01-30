@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import './gallery.css';
 import PhotoCard from './photocard';
 import HeaderBar from './headerbar';
 
@@ -96,8 +95,7 @@ class App extends React.Component {
     return (
     <div className="App">
       <HeaderBar showDownload={this.state.showDownload} showDelete={this.state.showDelete} />
-      <header className="App-header">
-        <div className='container'>
+        <div className='App-body'>
         {this.state.photoData.map((photo) =>(
           <PhotoCard
            src={photo.url} 
@@ -108,7 +106,6 @@ class App extends React.Component {
            box={photo.box} />
         ))}
         </div>
-      </header>
     </div>
   );
         }
